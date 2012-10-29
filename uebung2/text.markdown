@@ -24,8 +24,9 @@ Von
 		P;
 	} while (B);
 Nach
-
-	for (P; B;) {P;}
+	
+	P;
+	for (B) {P;}
 
 
 ## for nach while
@@ -49,7 +50,7 @@ Nach
 Von
 
 	{
-		while(B;){
+		while(B){
 			P;
 		}
 	}
