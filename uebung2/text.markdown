@@ -1,7 +1,7 @@
 Aufgabe 2 B) Schleifenumformung
 =========================== 
 
-## for 2 do-while
+## for nach do-while
 Von
 
 	for (Z; B; I) { P; }
@@ -17,20 +17,18 @@ Nach
 	}
 
 
-## do-while 2 for
+## do-while nach for
 Von
 
-	Z;
 	do{
 		P;
-		I;
 	} while (B);
 Nach
 
-	for (Z; B; I;) {p;}
+	for (P; B;) {P;}
 
 
-## for 2 while
+## for nach while
 Von
 
 	for (Z; B; I) { P; }
@@ -47,25 +45,21 @@ Nach
 
 
 
-## while 2 do-while
+## while nach do-while
 Von
 
 	{
-		Z;
-		while(B){
+		while(B;){
 			P;
-			I;
 		}
 	}
 Nach
 
 	{
-		Z;
 		if(B) {
-			do {}
+			do {
 				P;
-				I;
-			} while (B)
+			} while (B;)
 		}
 	}
 
