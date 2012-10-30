@@ -63,17 +63,22 @@ Nach
 			} while (B;)
 		}
 	}
-
-
+  
+   
+   
+   
+  
+  .  
+  .   
 Aufgabe 6 b)
 =============
 
 Eine gültige Variante für die Terminierung ist V = r, denn die Schleifenbedingung B = r\*r < x mit der Vorbedingung r > 0 impliziert r\*r <= x.  
 Es gilt:
 
-	< r > 0 && x > 0 && x >= r && r = m >
-	< r + 1 > m>
+	$\langle r > 0 \land x > 0 \land x \ge r \land r = m \rangle$
+	$\langle r + 1 > m\rangle$
 	r = r + 1;
-	< r > m >
+	$\langle r > m \rangle$
 
 Damit ist die Terminierung der einzigen Schleife in P gezeigt, da x konstant bleibt und r stetig wächst.
