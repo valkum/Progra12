@@ -64,43 +64,19 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchen.java",
+			"file": "/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung3/Bank/Bank.java",
 			"settings":
 			{
-				"buffer_size": 3842,
-				"line_ending": "Unix"
+				"buffer_size": 533,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchenbeet.java",
+			"file": "/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung3/Bank/Konto.java",
 			"settings":
 			{
-				"buffer_size": 3304,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bienchen.java",
-			"settings":
-			{
-				"buffer_size": 2550,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Garten.java",
-			"settings":
-			{
-				"buffer_size": 5031,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Typ.java",
-			"settings":
-			{
-				"buffer_size": 76,
-				"line_ending": "Unix"
+				"buffer_size": 56,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -196,6 +172,14 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Valkum/AppData/Local/Temp/Punkt.java",
+		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Typ.java",
+		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Garten.java",
+		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bienchen.java",
+		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchenbeet.java",
+		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchen.java",
+		"/C/Users/Valkum/Downloads/product-ggp_track_ad.xml",
+		"/C/Users/Valkum/Downloads/product-ivw_tracking.xml",
 		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung4/Bluemchen/bluemchen.sublime-project",
 		"/C/Users/Valkum/Dropbox/Kunden/GGP/Daten/new NL/audi-ag-audi-social-stunt-Dateien/sandbox.css",
 		"/C/Users/Valkum/Dropbox/Kunden/GGP/Daten/new NL/Netzwerkleiste/css/style.less",
@@ -323,102 +307,18 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchen.java",
+					"file": "/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung3/Bank/Bank.java",
 					"settings":
 					{
-						"buffer_size": 3842,
+						"buffer_size": 533,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3230,
-								3230
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1560.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchenbeet.java",
-					"settings":
-					{
-						"buffer_size": 3304,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2129,
-								2129
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 905.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bienchen.java",
-					"settings":
-					{
-						"buffer_size": 2550,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								368,
-								368
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Java/Java.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 981.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Garten.java",
-					"settings":
-					{
-						"buffer_size": 5031,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								833,
-								833
+								525,
+								525
 							]
 						],
 						"settings":
@@ -428,25 +328,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2527.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Typ.java",
+					"buffer": 1,
+					"file": "/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung3/Bank/Konto.java",
 					"settings":
 					{
-						"buffer_size": 76,
+						"buffer_size": 56,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								76,
-								76
+								0,
+								0
 							]
 						],
 						"settings":
