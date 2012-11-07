@@ -24,8 +24,9 @@ public class Bluemchenbeet {
      */
     public boolean lebendig() {
         boolean lebt = false;
-        for(Bluemchen bluemchen : gibBluemchen()) {
-            if(bluemchen != null){
+        Bluemchen[] bluemchen = this.gibBluemchen();
+        for(int i = 0; i < MAXBLUEMCHEN; i++){
+            if(bluemchen[i] != null){
                 lebt = true;
             }
         }
@@ -38,11 +39,14 @@ public class Bluemchenbeet {
      * @param neuesBluemchen das Bluemchen wird eingepflanzt
      */
     public void neuesBluemchen(Bluemchen neuesBluemchen) {
-        Bluemchen[] blumenPlatz = gibBluemchen();
-        for(Bluemchen bluemchen : blumenPlatz){
-            if(bluemchen == null){
-                bluemchen = neuesBluemchen;
+        Bluemchen[] bluemchen = gibBluemchen();
+
+        for(int i = 0; i< MAXBLUEMCHEN; i++){
+            if(bluemchen[i] == null){
+                bluemchen[i] = neuesBluemchen;
+                break;
             }
+            
         }
     }
 
@@ -52,10 +56,11 @@ public class Bluemchenbeet {
      * @param neueBluemchen die Bluemchen werden eingepflanzt
      */
     public void neueBluemchen(Bluemchen[] neueBluemchen) {
+        Bluemchen[] bluemchen = gibBluemchen();
         for(Bluemchen neuesBluemchen : neueBluemchen){
-            for(Bluemchen bluemchenPlatz : gibBluemchen()){
-                if(bluemchenPlatz == null){
-                    bluemchenPlatz = neuesBluemchen;
+            for(int i = 0; i< MAXBLUEMCHEN; i++){
+                if(bluemchen[i] == null){
+                    bluemchen[i] = neuesBluemchen;
                 }
             }
         }
@@ -66,7 +71,12 @@ public class Bluemchenbeet {
      * @param menge Liter zum Giessen
      */
     public void giessen(int menge) {
-    	/
+        Bluemchen[] bluemchen = gibBluemchen();
+    	for(int i = 0; i< MAXBLUEMCHEN; i++){
+            if(bluemchen[i] != null && !bluemchen[i].giessen(menge)) {
+                bluemchen[i] = null;
+            }
+        }
     }
 
     /**
@@ -75,9 +85,10 @@ public class Bluemchenbeet {
      */
     public String toString() {
         String string = "";
-        for(Bluemchen bluemchen : gibBluemchen()){
-            if(bluemchen != null){
-                string += bluemchen.toString() + "\n";
+        Bluemchen[] bluemchen = this.gibBluemchen();
+        for(int i = 0; i< MAXBLUEMCHEN; i++){
+            if(bluemchen[i] != null){
+                string += bluemchen[i].toString() + "\n";
             }
         }
     	return string;
@@ -87,9 +98,10 @@ public class Bluemchenbeet {
      * Sorge dafuer, dass jedes Bluemchen in diesem Beet Wasser verbraucht.
      */
     public void verbraucheWasser() {
-    	for(Bluemchen bluemchen : gibBluemchen()){
-            if(!bluemchen.verbraucheWasser()){
-                bluemchen = null;
+        Bluemchen[] bluemchen = gibBluemchen();
+    	for(int i = 0; i< MAXBLUEMCHEN; i++){
+            if(bluemchen[i] != null && !bluemchen[i].verbraucheWasser()){
+                bluemchen[i] = null;
             }
         }
     }

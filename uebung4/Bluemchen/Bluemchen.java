@@ -97,8 +97,8 @@ public class Bluemchen {
      * @return true, das Bluemchen lebt noch, false, das Bluemchen ist ertrunken 
      */
     public boolean giessen(int menge) {
-        wasserVorrat += menge;
-    	return (menge+wasserVorrat >= maxWasserVorrat);
+        this.wasserVorrat += menge;
+    	return ( this.wasserVorrat <= maxWasserVorrat);
     }
 
     /**
