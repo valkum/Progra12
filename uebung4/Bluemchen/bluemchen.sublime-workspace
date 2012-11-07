@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"bluemch",
+				"bluemchen"
+			],
+			[
+				"neues",
+				"neuesBluemchen"
+			],
+			[
+				"bluemchen",
+				"bluemchenPlatz"
+			],
+			[
+				"bluemc",
+				"bluemchenPlatz"
+			],
+			[
+				"was",
+				"wasserVorrat"
+			],
+			[
+				"max",
+				"maxWasserVorrat"
+			],
+			[
+				"ver",
+				"verbrauch"
+			],
+			[
 				"pr",
 				"println"
 			],
@@ -39,7 +67,7 @@
 			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchen.java",
 			"settings":
 			{
-				"buffer_size": 2449,
+				"buffer_size": 3842,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +75,7 @@
 			"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchenbeet.java",
 			"settings":
 			{
-				"buffer_size": 1908,
+				"buffer_size": 3304,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,11 +111,15 @@
 		"selected_items":
 		[
 			[
-				"inst",
+				"packe",
 				"Package Control: Install Package"
 			],
 			[
 				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -127,10 +159,6 @@
 				"Markdown Preview: preview in Browser"
 			],
 			[
-				"packe",
-				"Package Control: Install Package"
-			],
-			[
 				"markdow",
 				"Markdown Preview: preview in Browser"
 			],
@@ -168,6 +196,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung4/Bluemchen/bluemchen.sublime-project",
 		"/C/Users/Valkum/Dropbox/Kunden/GGP/Daten/new NL/audi-ag-audi-social-stunt-Dateien/sandbox.css",
 		"/C/Users/Valkum/Dropbox/Kunden/GGP/Daten/new NL/Netzwerkleiste/css/style.less",
 		"/C/Users/Valkum/Dropbox/Kunden/GGP/Daten/new NL/Netzwerkleiste/test.html",
@@ -176,7 +205,6 @@
 		"/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Zufall.java",
 		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung4/Zufall.java",
 		"/C/Users/Valkum/Dropbox/Kunden/droidcon/daten/splash/splash.html",
-		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung4/Bluemchen/bluemchen.sublime-project",
 		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Progra/uebungen/Progra12/uebung4/Typ.java",
 		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Diskrete Strukturen/a22.txt",
 		"/C/Users/Valkum/Dropbox/Uni/1. Semester/Diskrete Strukturen/a21.txt",
@@ -298,15 +326,15 @@
 					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchen.java",
 					"settings":
 					{
-						"buffer_size": 2449,
+						"buffer_size": 3842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3230,
+								3230
 							]
 						],
 						"settings":
@@ -316,7 +344,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1560.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -326,15 +354,15 @@
 					"file": "/C/Users/Valkum/Dropbox/Uni/1. semester/Progra/uebungen/Progra12/uebung4/bluemchen/Bluemchenbeet.java",
 					"settings":
 					{
-						"buffer_size": 1908,
+						"buffer_size": 3304,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2129,
+								2129
 							]
 						],
 						"settings":
@@ -344,7 +372,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 905.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -361,8 +389,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								368,
+								368
 							]
 						],
 						"settings":
@@ -372,7 +400,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 981.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -389,8 +417,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								833,
+								833
 							]
 						],
 						"settings":
@@ -400,7 +428,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2527.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
