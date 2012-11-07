@@ -110,23 +110,23 @@ public class Schiffe {
         boolean[][] schuesse2 = 
             new boolean[Schiffe.fieldsize][Schiffe.fieldsize];
         // Fuer Hausaufgabe ersetzen durch
-        // Schiffe.schiffeEintragen(schiffe1, schuesse1);
-        SchiffeSecret.schiffeEintragen(schiffe1);
-        SchiffeSecret.schiffeEintragen(schiffe2);
+        Schiffe.schiffeEintragen(schiffe1, schuesse1);
+        //SchiffeSecret.schiffeEintragen(schiffe1);
+        Schiffe.schiffeEintragenComputer(schiffe2);
         boolean gewonnen;
         do {
             Schiffe.ausgabe(schiffe1, schuesse1, true);
             Schiffe.ausgabe(schiffe2, schuesse2, false);
             // Fuer Hausaufgabe ersetzen durch
-            // Schiffe.schussEingeben(schiffe2, schuesse2);
-            SchiffeSecret.schussEingeben(schiffe2, schuesse2);
+            Schiffe.schussEingeben(schiffe2, schuesse2);
+            //SchiffeSecret.schussEingeben(schiffe2, schuesse2);
             gewonnen = Schiffe.gewonnen(schiffe2, schuesse2);
             if (gewonnen) {
                 Schiffe.ausgabe(schiffe1, schuesse1, true);
                 Schiffe.ausgabe(schiffe2, schuesse2, false);
                 System.out.println("Spieler 1 hat gewonnen!");
             } else {
-                SchiffeSecret.schussEingeben(schiffe1, schuesse1);
+                Schiffe.schussEingebenComputer(schiffe1, schuesse1);
                 gewonnen = Schiffe.gewonnen(schiffe1, schuesse1);
                 if (gewonnen) {
                     Schiffe.ausgabe(schiffe1, schuesse1, true);
@@ -140,10 +140,10 @@ public class Schiffe {
     // Gibt die Anzahl Kaestchen zurueck, auf die noch nicht geschossen 
     // wurde.
     public static int nochFrei(boolean[][] schuesse) {
-		private int fFelder = 0;
-        for (int i = 0; i <= Schiffe.fieldsize; i++) {
-            for (int j = 0; j <= Schiffe.fieldsize; j++) {
-				if(!schuesse[i][j]){
+		int fFelder = 0;
+        for (boolean y[] : schuesse) {
+            for (boolean x : y) {
+				if(!x){
 					fFelder++;
 				}
 			}
@@ -199,15 +199,7 @@ public class Schiffe {
                         .toUpperCase()
                         .charAt(0);
                 } while (ausrichtung != 'S' && ausrichtung != 'W');
-            } while (
-                !Schiffe.schiffEintragen(
-                    schiffe,
-                    zeile,
-                    spalte,
-                    ausrichtung == 'S' ? true : false,
-                    i
-                )
-            );
+            } while ( !Schiffe.schiffEintragen(schiffe, zeile, spalte, ausrichtung == 'S' ? true : false, i) );
         }
     }
 
@@ -218,44 +210,52 @@ public class Schiffe {
 	//Zuerst Abfrage, ob das Schiff innerhalb des Feldes liegt, wir 
 	//benutzen eine Verzweigung, da sich je nach Ausrichtung die borders
 	//aendern, da wir jedes mal die Laenge des Schiffes dazurechnen muessen#
-	private boolean[][] copy = schiffe;
+	boolean[][] copy = schiffe;
 		if(senkrecht){
-			if(zeile < 0 || spalte < 0 || spalte + laenge + 1  > fieldsize || zeile > fieldsize){
+			if(zeile < 0 || spalte < 0 || zeile + laenge   > fieldsize || zeile > fieldsize-1){
 				System.out.println(fehlerPasstNicht);
-				return schiffe;
+				return false;
 			}
-			if(!schiffe[zeile-1][spalte] || schiffe[zeile + laenge + 1][spalte]){
+			if(!schiffe[zeile == 0 ? 0: zeile -1][spalte] || schiffe[zeile + laenge >= fieldsize-1 ? fieldsize-1 : zeile + laenge + 1][spalte]){
 				for(int i = zeile;i < zeile + laenge;i++){
-					if(!schiffe[i][spalte] && !schiffe[i][spalte-1] && !schiffe[i][spalte+1]){
+					if(!schiffe[i][spalte] && !schiffe[i][spalte == 0 ? 0 : spalte-1] && !schiffe[i][spalte == fieldsize-1 ? fieldsize-1 : spalte+1]){
 						copy[i][spalte] = true;
 					}
 					else
 					{
 					System.out.println(fehlerKollision);
-					return schiffe;
+					return false;
 					}
 				}
-				return copy;
+				schiffe = copy;
+				return true;
 			}
+			else{System.out.println(fehlerKollision);}
 		}
         else{
-			if(zeile < 0 || spalte < 0 || spalte > fieldsize || zeile + laenge + 1 > fieldsize){
+			if(zeile < 0 || spalte < 0 || spalte > fieldsize || spalte + laenge  > fieldsize){
 				System.out.println(fehlerPasstNicht);
+				return false;
 			}
-			if(!schiffe[zeile][spalte-1] || schiffe[zeile][spalte + laenge + 1]){
+			if(!schiffe[zeile][spalte == 0 ? 0 : spalte-1] && !schiffe[zeile][spalte + laenge  >= fieldsize-1 ? fieldsize-1 : spalte + laenge]){
 				for(int i = spalte;i < spalte + laenge;i++){
-					if(!schiffe[zeile][i] && !schiffe[zeile -1][i] && !schiffe[zeile+1][i]){
+
+					if(!schiffe[zeile][i] && !schiffe[zeile == 0 ? 0: zeile -1][i] && !schiffe[zeile == fieldsize-1 ? fieldsize-1 : zeile+1][i]){
 						copy[zeile][i] = true;
 					}
 					else
 					{
 					System.out.println(fehlerKollision);
-					return schiffe;
+					return false;
 					}
 				}
-				return copy;
+				schiffe = copy;
+				return true;
 			}
+			else{System.out.println(fehlerKollision);}
 		}
+		//Diese Zeile wird nie erreicht und stört den Compiler trotzdem.
+		return false;
 		
     }
 
@@ -265,18 +265,47 @@ public class Schiffe {
     // zusaetzlich inferiertes Wissen eingetragen. Ansonsten wird die 
     // Eingabeaufforderung wiederholt.
     public static void schussEingeben(boolean[][] schiffe, boolean[][] schuesse){
-		private int zeile = '0';
-		private int spalte = 0;
+		char zeile = '0';
+		int spalte = 0;
 		do{
-			System.out.println("Bitte geben sie die Zeile des Ziels ein");
-			zeile = System.console.readLine().toUpperCase().charAt(0) - 65;
-		while(zeile =< fieldsize);
+			System.out.print("Bitte geben sie die Zeile des Ziels ein: ");
+			zeile = (char) (System.console().readLine().toUpperCase().charAt(0) - 65);
+		}while(zeile >= fieldsize);
 		do{
-			System.out.println("Bitte geben sie die Spalte des Ziels ein");
-			spalte = Integer.parseInt(System.console.readline());
-		while(spalte =< fieldsize);
+			System.out.print("Bitte geben sie die Spalte des Ziels ein: ");
+			spalte = Integer.parseInt(System.console().readLine());
+		}while(spalte >= fieldsize);
 		schuesse[zeile][spalte] = true;
-     SchiffeSecret.zusaetzlicheFelder(schiffe, schuesse, zeile, spalte);
+		SchiffeSecret.zusaetzlicheFelder(schiffe, schuesse, zeile, spalte);
     }
+	
+	public static void schiffeEintragenComputer(boolean[][] schiffe){
+        int zeile;
+        int spalte;
+        char ausrichtung;
+		int ran;
+        for (int i = Schiffe.biggestShip; i >= Schiffe.smallestShip; i--) {
+            do {
+                // bestimmt aus der Spielfeldgroesse den letztmoeglichen 
+                // Buchstaben
+
+                // wandelt Buchstaben in Zahlen um (A = 0, B = 1, usw.)
+                zeile = SchiffeSecret.random.nextInt(fieldsize);
+                spalte = SchiffeSecret.random.nextInt(fieldsize);
+				ran = SchiffeSecret.random.nextInt(2);
+				if(ran==0) ausrichtung = 'W'; else ausrichtung = 'S';
+            } while (!Schiffe.schiffEintragen(schiffe,zeile,spalte,ausrichtung == 'S' ? true : false,i)
+            );
+        }		
+	}
+	
+	public static void schussEingebenComputer(boolean[][] schiffe, boolean[][] schuesse){
+		int zeile = 0;
+		int spalte = 0;
+			zeile = SchiffeSecret.random.nextInt(fieldsize);
+			spalte = SchiffeSecret.random.nextInt(fieldsize);
+		schuesse[zeile][spalte] = true;
+		SchiffeSecret.zusaetzlicheFelder(schiffe, schuesse, zeile, spalte);
+	}
 
 }
