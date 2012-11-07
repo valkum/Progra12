@@ -23,7 +23,13 @@ public class Bluemchenbeet {
      * @return true, wenn lebendig, sonst false.
      */
     public boolean lebendig() {
-       // TO DO
+        boolean lebt = false;
+        for(Bluemchen bluemchen : gibBluemchen()) {
+            if(bluemchen != null){
+                lebt = true;
+            }
+        }
+        return lebt;
     }
 
     /**
@@ -32,7 +38,12 @@ public class Bluemchenbeet {
      * @param neuesBluemchen das Bluemchen wird eingepflanzt
      */
     public void neuesBluemchen(Bluemchen neuesBluemchen) {
-       // TO DO
+        Bluemchen[] blumenPlatz = gibBluemchen();
+        for(Bluemchen bluemchen : blumenPlatz){
+            if(bluemchen == null){
+                bluemchen = neuesBluemchen;
+            }
+        }
     }
 
     /**
@@ -41,7 +52,13 @@ public class Bluemchenbeet {
      * @param neueBluemchen die Bluemchen werden eingepflanzt
      */
     public void neueBluemchen(Bluemchen[] neueBluemchen) {
-       // TO DO
+        for(Bluemchen neuesBluemchen : neueBluemchen){
+            for(Bluemchen bluemchenPlatz : gibBluemchen()){
+                if(bluemchenPlatz == null){
+                    bluemchenPlatz = neuesBluemchen;
+                }
+            }
+        }
     }
 
     /**
@@ -49,7 +66,7 @@ public class Bluemchenbeet {
      * @param menge Liter zum Giessen
      */
     public void giessen(int menge) {
-    	// TO DO
+    	/
     }
 
     /**
@@ -57,13 +74,23 @@ public class Bluemchenbeet {
      * @return Ein String mit allen Informationen 
      */
     public String toString() {
-    	// TO DO
+        String string = "";
+        for(Bluemchen bluemchen : gibBluemchen()){
+            if(bluemchen != null){
+                string += bluemchen.toString() + "\n";
+            }
+        }
+    	return string;
     }
 
     /**
      * Sorge dafuer, dass jedes Bluemchen in diesem Beet Wasser verbraucht.
      */
     public void verbraucheWasser() {
-    	// TO DO
+    	for(Bluemchen bluemchen : gibBluemchen()){
+            if(!bluemchen.verbraucheWasser()){
+                bluemchen = null;
+            }
+        }
     }
 }

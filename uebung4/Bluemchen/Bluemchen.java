@@ -44,8 +44,41 @@ public class Bluemchen {
     	 * Typ 2: Osterglocke, max. Wasservorrat 25, Verbrauch pro Tag 4
     	 * Typ 3: Sumpf-Schwertlilie, max. Wasservorrat 32, Verbrauch pro Tag 5
     	 */
+        Bluemchen blume = new Bluemchen();
+    	switch(typDerBlume.ordinal()) {
+            default:
+            case 0:
+                blume.typ = typDerBlume;
+                blume.verbrauch = 7;
+                blume.maxWasserVorrat=40;
+                blume.name="Tupe";
+            break;
+            case 1:
+                blume.typ = typDerBlume;
+                blume.verbrauch = 6;
+                blume.maxWasserVorrat=20;
+                blume.name="Rittersporn";
+            break;
+            case 2: 
+                blume.typ = typDerBlume;
+                blume.verbrauch = 4;
+                blume.maxWasserVorrat=25;
+                blume.name="Osterglocke";
+            break;
+            case 3:
+                blume.typ = typDerBlume;
+                blume.verbrauch = 5;
+                blume.maxWasserVorrat=32;
+                blume.name="Sumpf-Schwertlilie";
+            break;
+        }
 
-    	// TO DO
+        if( ( 3 * blume.verbrauch) >= blume.maxWasserVorrat) {
+            blume.wasserVorrat = blume.maxWasserVorrat;
+        }else{
+            blume.wasserVorrat = 3*blume.verbrauch;
+        }
+        return blume;
     }
 
     /**
@@ -54,7 +87,7 @@ public class Bluemchen {
      * @return alle Informationen des Bluemchens als String
      */
     public String toString() {
-    	// TO DO
+    	return "("+ this.typ.ordinal() +") "+ this.name +" ["+ this.wasserVorrat +"/"+ this.maxWasserVorrat +"] (Verbrauch: "+ this.verbrauch +")";
     }
 
     /**
@@ -64,7 +97,8 @@ public class Bluemchen {
      * @return true, das Bluemchen lebt noch, false, das Bluemchen ist ertrunken 
      */
     public boolean giessen(int menge) {
-    	// TO DO
+        wasserVorrat += menge;
+    	return (menge+wasserVorrat >= maxWasserVorrat);
     }
 
     /**
@@ -75,6 +109,7 @@ public class Bluemchen {
      * @return true, das Bluemchen lebt noch, false, das Bluemchen ist verdurstet 
      */
     public boolean verbraucheWasser() {
-    	// TO DO
+    	wasserVorrat = wasserVorrat - verbrauch;
+        return (wasserVorrat > 0);
     }
 }
