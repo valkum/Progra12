@@ -45,27 +45,27 @@ public class Bluemchen {
     	 * Typ 3: Sumpf-Schwertlilie, max. Wasservorrat 32, Verbrauch pro Tag 5
     	 */
         Bluemchen blume = new Bluemchen();
-    	switch(typDerBlume.ordinal()) {
+    	switch(typDerBlume) {
             default:
-            case 0:
+            case Tulpe:
                 blume.typ = typDerBlume;
                 blume.verbrauch = 7;
                 blume.maxWasserVorrat=40;
-                blume.name="Tupe";
+                blume.name="Tulpe";
             break;
-            case 1:
+            case Rittersporn:
                 blume.typ = typDerBlume;
                 blume.verbrauch = 6;
                 blume.maxWasserVorrat=20;
                 blume.name="Rittersporn";
             break;
-            case 2: 
+            case Osterglocke: 
                 blume.typ = typDerBlume;
                 blume.verbrauch = 4;
                 blume.maxWasserVorrat=25;
                 blume.name="Osterglocke";
             break;
-            case 3:
+            case Sumpf_Schwertlilie:
                 blume.typ = typDerBlume;
                 blume.verbrauch = 5;
                 blume.maxWasserVorrat=32;

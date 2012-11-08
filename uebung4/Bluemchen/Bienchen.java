@@ -30,6 +30,13 @@ public class Bienchen {
           Bluemchenbeet.MAXBLUEMCHEN];
 
         // TO DO (nutzen Sie die Hilfsmethode)
+         for(Bluemchen bluemchen1 : bluemchenStart) {
+            for(Bluemchen bluemchen2 : bluemchenEnde){
+                if (bluemchen1 != null && bluemchen2 != null) erstelleNeuesBluemchen(bluemchen1, bluemchen2, neueBluemchen);
+            }
+         }
+
+         beetEnde.neueBluemchen(neueBluemchen);
     }
 
     /**
