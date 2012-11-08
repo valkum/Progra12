@@ -12,4 +12,19 @@ public class Wagen {
     }
     return res;
   }
+
+  public String toString() {
+    return Band.arrayToString(this.inhalt);
+  }
+
+  public Muell leere(){
+    for(int i = 0; i < this.inhalt.length; i++){
+      if(this.inhalt[i] != null){
+        Muell temp = this.inhalt[i];
+        this.inhalt[i] = null;
+        return temp;
+      }
+    }
+    return null;
+  }
 }

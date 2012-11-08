@@ -12,6 +12,19 @@ public class Fabrik {
     bandEins.inhalt = new Muell[anzahl/2];
     bandZwei.inhalt = new Muell[anzahl/2];
 
-    // TODO
+    int i = 0;
+    Muell m = null;
+    do{
+      m = wagen.leere();
+      System.out.println(wagen.toString());
+      if((i % 2) = 0){
+        bandEins.drauf(m);
+      }else{
+        bandZwei.drauf(m);
+      }
+      System.out.println(bandEins.toString());
+      System.out.println(bandZwei.toString());
+      i++;
+    }while(m != null);
   }
 }
