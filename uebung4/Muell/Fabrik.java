@@ -13,18 +13,40 @@ public class Fabrik {
     bandZwei.inhalt = new Muell[anzahl/2];
 
     int i = 0;
-    Muell m = null;
+    Muell m = wagen.leere();
+    System.out.println("Wagen: " + wagen.toString());
+    System.out.println("Band 1: " + bandEins.toString());
+    System.out.println("Band 2: " + bandZwei.toString());
     do{
-      m = wagen.leere();
-      System.out.println(wagen.toString());
-      if((i % 2) = 0){
+      System.out.println("Wagen: " + wagen.toString());
+      if((i % 2)==0){
         bandEins.drauf(m);
       }else{
         bandZwei.drauf(m);
       }
-      System.out.println(bandEins.toString());
-      System.out.println(bandZwei.toString());
+      System.out.println("Band 1: " + bandEins.toString());
+      System.out.println("Band 2: " + bandZwei.toString());
       i++;
+      m = wagen.leere();
     }while(m != null);
+    System.out.println("Reinige ...");
+    Fabrik.bearbeite(bandZwei.inhalt);
+    System.out.println("Band 2: " + bandZwei.toString());
+  }
+
+  public static void bearbeite(Muell[] muell){
+    for(int i = 0; i < muell.length; i++){
+      if(muell[i] != null){
+        switch (muell[i].sorte){
+
+          case Metall:
+            muell[i] = null;
+          break;
+          case Plastik:
+            muell[i].reinige();
+          break;
+        }
+      }
+    }
   }
 }

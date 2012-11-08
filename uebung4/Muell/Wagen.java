@@ -20,6 +20,7 @@ public class Wagen {
   public Muell leere(){
     for(int i = 0; i < this.inhalt.length; i++){
       if(this.inhalt[i] != null){
+        //System.out.println("leere folgendes: "+this.inhalt[i].toString());
         Muell temp = this.inhalt[i];
         this.inhalt[i] = null;
         return temp;

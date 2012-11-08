@@ -4,8 +4,14 @@ public class Band {
 
   public static String arrayToString(Muell[] m) {
   	String string = "";
+    int x = 0;
   	for(int i= 0; i < m.length; i++) {
-  		if (m[i] != null) string += m[i].toString();
+      
+  		if (m[i] != null){
+        if(x>0) string += ", ";
+        string += m[i].toString();
+        x++;
+      }
   	}
   	return string;
   }
@@ -18,6 +24,7 @@ public class Band {
     for(int i = 0; i < this.inhalt.length; i++){
       if(this.inhalt[i] == null){
         this.inhalt[i] = m;
+        return;
       }
     }
   }
