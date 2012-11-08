@@ -216,7 +216,14 @@ public class Schiffe {
 				System.out.println(fehlerPasstNicht);
 				return false;
 			}
-			if(!schiffe[zeile == 0 ? 0: zeile -1][spalte] || schiffe[zeile + laenge >= fieldsize-1 ? fieldsize-1 : zeile + laenge + 1][spalte]){
+			if(!schiffe[zeile == 0 ? 0: zeile -1][spalte] && //darüber
+                !schiffe[zeile + laenge >= fieldsize-1 ? fieldsize-1 : zeile + laenge + 1][spalte] && //darunter
+                !schiffe[zeile + laenge >= fieldsize-1 ? fieldsize-1 : zeile + laenge + 1][spalte == fieldsize-1 ? fieldsize-1 : spalte+1] && //rechts darunter
+                !schiffe[zeile + laenge >= fieldsize-1 ? fieldsize-1 : zeile + laenge + 1][spalte == 0 ? 0 : spalte-1] && //links darunter
+                !schiffe[zeile == 0 ? 0: zeile -1][spalte == fieldsize-1 ? fieldsize-1 : spalte+1] && //rechts darüber
+                !schiffe[zeile == 0 ? 0: zeile -1][spalte == 0 ? 0 : spalte-1] //links darüber
+
+                ){
 				for(int i = zeile;i < zeile + laenge;i++){
 					if(!schiffe[i][spalte] && !schiffe[i][spalte == 0 ? 0 : spalte-1] && !schiffe[i][spalte == fieldsize-1 ? fieldsize-1 : spalte+1]){
 						copy[i][spalte] = true;
@@ -237,7 +244,13 @@ public class Schiffe {
 				System.out.println(fehlerPasstNicht);
 				return false;
 			}
-			if(!schiffe[zeile][spalte == 0 ? 0 : spalte-1] && !schiffe[zeile][spalte + laenge  >= fieldsize-1 ? fieldsize-1 : spalte + laenge]){
+			if(!schiffe[zeile][spalte == 0 ? 0 : spalte-1] && //links
+                !schiffe[zeile][spalte + laenge  >= fieldsize-1 ? fieldsize-1 : spalte + laenge] && //rechts
+                !schiffe[zeile == 0 ? 0: zeile -1][spalte == 0 ? 0 : spalte-1] && //links oben
+                !schiffe[zeile == 0 ? 0: zeile -1][spalte + laenge  >= fieldsize-1 ? fieldsize-1 : spalte + laenge] && //rechts oben
+                !schiffe[zeile == fieldsize-1 ? fieldsize-1 : zeile + 1][spalte == 0 ? 0 : spalte-1] && //links unten
+                !schiffe[zeile == fieldsize-1 ? fieldsize-1 : zeile + 1][spalte + laenge  >= fieldsize-1 ? fieldsize-1 : spalte + laenge] //rechts oben
+                ){
 				for(int i = spalte;i < spalte + laenge;i++){
 
 					if(!schiffe[zeile][i] && !schiffe[zeile == 0 ? 0: zeile -1][i] && !schiffe[zeile == fieldsize-1 ? fieldsize-1 : zeile+1][i]){
