@@ -24,18 +24,42 @@ public class Anbieter {
    * Der Kontostand des dieses Anbieters.
    */
   private double kontostand = 0;
-
+ /**
+   * Erzeugt einen neuen Anbieter
+   */
   public Anbieter(){
     anzahl++;
     this.id = anzahl;
   }
-
+  /**
+   * Erzeugt einen neuen Kunden dieses Anbieters
+   * @return Kunde der neue Kunde
+   */
   public Kunde neuerKunde() {
     Kunde kunde = new Kunde(this);
     return kunde;
   }
-
-
+  /**
+   * Erhöht das Speicher im angegebenen Server
+   * @param ram int Anzahl an GB RAM
+   * @param stellplatz int Stellplatz des Servers der mehr RAM bekommen soll.
+   * @param kunde Kunde Der Kunde der den Server haben will.
+   */
+  public void mehrRam(int ram, int stellplatz, Kunde kunde) {
+    if(this.serverHalle[stellplatz] != null) {
+      double preis = 5*ram;
+      if(this.bezahle(preis, kunde)){
+        this.serverHalle[stellplatz].mehrRam(ram);
+      }
+    }
+  }
+ /**
+   * Legt einen neuen Server an
+   * @param ram int Anzahl an GB RAM
+   * @param hdd int Anzahl an TB Festplattenspeicher
+   * @param kunde Kunde Der Kunde der den Server haben will.
+   * @return int Der stellplatz wenn der Server erfolgreich angelegt wurde sonst -1
+   */
   public int neuerServer(int ram, int hdd, Kunde kunde) {
     for(int i= 0;i < this.serverHalle.length;i++) {
       if(this.serverHalle[i] == null){
@@ -48,6 +72,12 @@ public class Anbieter {
     }
     return -1;
   }
+  /**
+   * Lässt den Kunden bezahlen
+   * @param preis double Der Preis den der Kunde Zahlen muss.
+   * @param kunde Kunde Der Kunde der bezahlen soll.
+   * @return boolean true wenn preis erfolgreich abgehoben wurde von kunde
+   */
   private boolean bezahle(double preis, Kunde kunde) {
     if(kunde.getKontostand() >= preis){
       kunde.bezahle(preis);
@@ -62,7 +92,7 @@ public class Anbieter {
    */
   public String toString() {
     String res = "";
-    res = "(ANBIETER "+this.id+") Kontostand: "+this.kontostand+"\n";
+    res = "(ANBIETER "+this.id+") Kontostand: "+this.kontostand;
     for (int i = 0; i < this.serverHalle.length; i++) {
       Server server = this.serverHalle[i];
       if (server != null) {

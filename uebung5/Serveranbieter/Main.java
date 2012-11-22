@@ -15,5 +15,9 @@ public class Main {
 		System.out.print(k1.toString());
 		System.out.print(k2.toString());
 		System.out.print(k3.toString());
+		System.out.println();
+		System.out.println("Aufgabe i)");
+		k1.mehrRam(8);
+		System.out.print(k1.toString());
 	}
 }
