@@ -72,9 +72,9 @@ public class Bluemchen {
                 blume.name="Sumpf-Schwertlilie";
             break;
         }
-
+	System.out.println("wasser: " + 3* blume.verbrauch);
         if( ( 3 * blume.verbrauch) >= blume.maxWasserVorrat) {
-            blume.wasserVorrat = blume.maxWasserVorrat;
+            blume.wasserVorrat = 1*blume.maxWasserVorrat;
         }else{
             blume.wasserVorrat = 3*blume.verbrauch;
         }
@@ -109,7 +109,7 @@ public class Bluemchen {
      * @return true, das Bluemchen lebt noch, false, das Bluemchen ist verdurstet 
      */
     public boolean verbraucheWasser() {
-    	wasserVorrat = wasserVorrat - verbrauch;
-        return (wasserVorrat > 0);
+    	this.wasserVorrat = wasserVorrat - verbrauch;
+        return (this.wasserVorrat > 0);
     }
 }
