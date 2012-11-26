@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"path": "./terme"
+		},
+		{
+			"path": "./drachenkurve"
+		},
+		{
+			"path": "./fraktale"
+		},
+		{
+			"path": "."
+		}
+	]
+}
