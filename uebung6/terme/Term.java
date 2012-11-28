@@ -229,6 +229,7 @@ public class Term {
     }
     return res;
   }
+
   public Term add(Term summand) {
     return new Term(Typ.ADD, this, summand);
   }
