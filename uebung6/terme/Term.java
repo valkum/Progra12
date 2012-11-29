@@ -259,8 +259,8 @@ public class Term {
    * @return boolean true wenn sie übereinstimmen.
    */
   public boolean equals(Term b) {
-
-    if(this.typ == b.typ) {
+    if(this == b) return true; //Wenn objekte identisch
+    if(this.typ == b.typ) { //teste ob die Terme identische sind aber die Objekte nicht.
       if(this.typ == Typ.VAR && this.var.equals(b.var)){
         return true;
       }else if(this.typ == Typ.LIT && this.wert == b.wert){
