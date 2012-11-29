@@ -52,6 +52,12 @@ public class Term {
     Term test = term.add(zahlNull).mul(zahlEins).sub(varX.sub(varX));
     System.out.println(test);
     System.out.println(test.vereinfache());
+
+    //Selbsteingebauter Test ob auch Terme von Termen mit (a-a) vereinfacht werden
+    Term test2 = term.sub(test.sub(test));
+    System.out.println(test2);
+    System.out.println(test2.vereinfache());
+
   }
 
   public String toString(){
@@ -79,6 +85,10 @@ public class Term {
     return res;
   }
 
+  /**
+   * Berechnet die größe des Terms
+   * @return int Gibt die Größe zurück
+   */
   public int groesse() {
     int res = 1;
     switch(this.typ) {
@@ -91,6 +101,13 @@ public class Term {
     }
     return res;
   }
+
+  /**
+   * Ersetzt alle vorkommen der Variable x im Term durch die Zahl y
+   * @param x String der Variablenname
+   * @param y double Der Wert der zugewiesen werden soll.
+   * @return Term Gibt den ersetzten Term zurück.
+   */
   public Term subst (String x, double y) {
     Term res = this;
     switch (this.typ) {
@@ -114,7 +131,10 @@ public class Term {
           
     return res;
   }
-
+  /**
+   * Wertet den Term aus
+   * @return Double Den Wert des Terms, wenn noch eine Variable im Term vorhanden ist, wird null zurückgegeben.
+   */
   public Double auswerten() {
     Double res = null;
     switch (this.typ) {
@@ -155,20 +175,23 @@ public class Term {
     }
     return res;
   }
-
+  /**
+   * Vereinfacht einen Term mithilfe der arithmetischen gesetze (a*0) = 0 etc.
+   * @return Term Den vereinfachten Term
+   */
   public Term vereinfache() {
     Term res = null;
     switch(this.typ) {
       case LIT:
-      res = this;
+        res = this;
       break;
       case VAR:
-      res = this;
+        res = this;
       break;
       case ADD:
-        if(this.erster.typ == Typ.LIT && Double.valueOf(this.erster.auswerten()) == 0d) {
+        if(this.erster.typ == Typ.LIT && this.erster.wert == 0d) {
           res = this.zweiter.vereinfache();
-        }else if (this.zweiter.typ == Typ.LIT && Double.valueOf(this.zweiter.auswerten()) == 0d) {
+        }else if (this.zweiter.typ == Typ.LIT && this.zweiter.auswerten() == 0d) {
           res = this.erster.vereinfache();
         }else if (this.erster.typ == Typ.LIT && this.zweiter.typ == Typ.LIT ){
           res = new Term(this.auswerten());
@@ -181,27 +204,28 @@ public class Term {
         }
       break;
       case SUB:
-        if(this.erster.typ == Typ.LIT && Double.valueOf(this.erster.auswerten()) == 0d) {
+        if(this.erster.typ == Typ.LIT && this.erster.auswerten() == 0d) {
           res = this.zweiter.vereinfache();
-        }else if (this.zweiter.typ == Typ.LIT && Double.valueOf(this.zweiter.auswerten()) == 0d) {
+        }else if (this.zweiter.typ == Typ.LIT && this.zweiter.auswerten() == 0d) {
           res = this.erster.vereinfache();
-        } else if(this.erster.typ == Typ.VAR && this.zweiter.typ == Typ.VAR && this.erster.var.equals(this.zweiter.var)){
-          res = null;
-        }else if(this.erster.vereinfache() == null) {
+        } else if(this.erster.vereinfache() == null) {
           res = this.zweiter.vereinfache();
         }else if(this.zweiter.vereinfache() == null) {
           res = this.erster.vereinfache();
         }else{
           res = new Term(Typ.SUB, this.erster.vereinfache(), this.zweiter.vereinfache());
         }
+        if(this.erster.equals(this.zweiter)){
+          res = null;
+        }
       break;
       case MUL:
-        if((this.erster.typ == Typ.LIT && Double.valueOf(this.erster.auswerten()) == 0 )||
-        (this.zweiter.typ == Typ.LIT && Double.valueOf(this.zweiter.auswerten()) == 0)) {
+        if( (this.erster.typ == Typ.LIT && this.erster.auswerten() == 0d) ||
+        (this.zweiter.typ == Typ.LIT && this.zweiter.auswerten() == 0d) ) {
           res = new Term(0d);
-        } else if(this.erster.typ == Typ.LIT && Double.valueOf(this.erster.auswerten()) == 1 ){
+        } else if(this.erster.typ == Typ.LIT && this.erster.auswerten() == 1d ){
           res = this.zweiter.vereinfache();
-        } else if(this.zweiter.typ == Typ.LIT && Double.valueOf(this.zweiter.auswerten()) == 1 ){
+        } else if(this.zweiter.typ == Typ.LIT && this.zweiter.auswerten() == 1d ){
           res = this.erster.vereinfache();
         } else if(this.erster.vereinfache() == null) {
           res = this.zweiter.vereinfache();
@@ -212,9 +236,9 @@ public class Term {
         }
       break;
       case DIV:
-        if(this.erster.typ == Typ.LIT && Double.valueOf(this.erster.auswerten()) == 0) {
+        if(this.erster.typ == Typ.LIT && this.erster.auswerten() == 0d ) {
           res = new Term(0d);
-        }else if (this.zweiter.typ == Typ.LIT && Double.valueOf(this.zweiter.auswerten()) == 1) {
+        }else if (this.zweiter.typ == Typ.LIT && this.zweiter.auswerten() == 1d) {
           res = this.erster.vereinfache();
         } else if(this.erster.typ == Typ.VAR && this.zweiter.typ == Typ.VAR && this.erster.var.equals(this.zweiter.var)){
           res = new Term(1d);
@@ -228,6 +252,26 @@ public class Term {
       break;
     }
     return res;
+  }
+  /**
+   * Testet ob der Term mit dem gegebenen Term übereinstimmt
+   * @param b Term Ein beliebiger Term
+   * @return boolean true wenn sie übereinstimmen.
+   */
+  public boolean equals(Term b) {
+
+    if(this.typ == b.typ) {
+      if(this.typ == Typ.VAR && this.var.equals(b.var)){
+        return true;
+      }else if(this.typ == Typ.LIT && this.wert == b.wert){
+        return true;
+      }else if(this.typ != Typ.VAR && this.typ != Typ.LIT){
+        if(this.erster.equals(b.erster) && this.zweiter.equals(b.zweiter)){
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   public Term add(Term summand) {
