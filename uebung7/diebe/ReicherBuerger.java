@@ -1,6 +1,7 @@
 public class ReicherBuerger extends Buerger {
 	
 	private int reichtum;
+	
 	ReicherBuerger(String name, int reichtum) {
 		super(name);
 		this.reichtum = reichtum;

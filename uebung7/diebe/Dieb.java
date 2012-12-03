@@ -14,15 +14,11 @@ public class Dieb extends Buerger {
 		for(int i = 0; i<5; i++){
 			int j = Zufall.zahl(einwohner.length);
 			Buerger target = einwohner[j];
-			if(target instanceof Buerger){
-				continue;
-			}else if(target instanceof ReicherBuerger) {
-				int targetGeld = target.getReichtum();
+			if(target instanceof ReicherBuerger) {
+				int targetGeld = ((ReicherBuerger)target).getReichtum();
 				int betrag = Zufall.zahl(targetGeld);
-				target.setReichtum(targetGeld - betrag);
+				((ReicherBuerger)target).setReichtum(targetGeld - betrag);
 				this.diebesgut += betrag;
-			}else if(target instanceof Dieb) {
-				continue;
 			}else if(target instanceof Polizist){
 				break;
 			}

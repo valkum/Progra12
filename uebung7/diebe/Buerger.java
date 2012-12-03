@@ -15,4 +15,8 @@ public class Buerger {
 	public void aktion (Buerger[] einwohner) {
 		System.out.println("Bürger " + this.getName() + "geht spazieren!");
 	}
+
+	public String toString(){
+		return this.getName();
+	}
 }
