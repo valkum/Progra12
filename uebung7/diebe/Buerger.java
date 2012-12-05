@@ -13,7 +13,7 @@ public class Buerger {
 		return false;
 	}
 	public void aktion (Buerger[] einwohner) {
-		System.out.println("Bürger " + this.getName() + "geht spazieren!");
+		System.out.println("Buerger " + this.getName() + " geht spazieren!");
 	}
 
 	public String toString(){

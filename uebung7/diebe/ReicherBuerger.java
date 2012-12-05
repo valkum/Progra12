@@ -16,8 +16,8 @@ public class ReicherBuerger extends Buerger {
 
 	public void aktion(Buerger[] einwohner) {
 		int reichtum = this.getReichtum();
-		int ausgaben = Zufall.zahl(reichtum);
+		int ausgaben = Zufall.zahl(reichtum-1);
 		this.setReichtum(reichtum - ausgaben);
-		System.out.println("Reicher Bürger " + this.getName() + "besticht einen Politiker mit " + ausgaben + "Euro!");
+		System.out.println("Reicher Buerger " + this.getName() + " besticht einen Politiker mit " + ausgaben + " Euro!");
 	}
 }

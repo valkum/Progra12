@@ -11,6 +11,7 @@ public class Dieb extends Buerger {
 	}
 
 	public void aktion(Buerger[] einwohner) {
+		System.out.println("Dieb " + this.getName() + " sucht nach Diebesgut!");
 		for(int i = 0; i<5; i++){
 			int j = Zufall.zahl(einwohner.length);
 			Buerger target = einwohner[j];
@@ -19,7 +20,9 @@ public class Dieb extends Buerger {
 				int betrag = Zufall.zahl(targetGeld);
 				((ReicherBuerger)target).setReichtum(targetGeld - betrag);
 				this.diebesgut += betrag;
+				System.out.println("Dieb " + this.getName() + " klaut " + target.getName() + " " + betrag + " Euro!");
 			}else if(target instanceof Polizist){
+				System.out.println("Dieb " + this.getName() + " bricht die Suche ab!");
 				break;
 			}
 		}
