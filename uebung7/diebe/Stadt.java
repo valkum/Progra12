@@ -9,9 +9,14 @@ public class Stadt {
 		int reicheBuerger = 0;
 		int gefangene = 0;
 
+
+		/**
+		 * Erzeuge neue Bürger anhand von int type (Zufafallszahl) aber max bis 20% 
+		 * Falls es überall mehr als 20% gibt, erstelle einen normalen Bürger.
+		 */
 		for(int i = 0; i<einwohnerzahl; i++) {
 			int type = Zufall.zahl(5);
-			if( type == 0) {
+			if( type == 0 && (buerger/einwohnerzahl) < 0.2) { 
 				this.einwohner[i] = new Buerger(Zufall.name());
 				buerger++;
 			}else if(type == 1 && (diebe/einwohnerzahl) < 0.2) {
@@ -26,7 +31,9 @@ public class Stadt {
 			}else if(type == 4 && (gefangene/einwohnerzahl) < 0.2) {
 				this.einwohner[i] = new Gefangener(Zufall.name());
 				gefangene++;
-
+			}else {
+				this.einwohner[i] = new Buerger(Zufall.name());
+				buerger++;
 			}
 		}
 
