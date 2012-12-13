@@ -49,8 +49,6 @@ class Rennbahn {
 			}
 			status();
 		}while(!fertig());
-			System.out.println("Distanz: "+distanz);
-		System.out.println(fertig());
 	}	
 
 	static boolean fertig() {
