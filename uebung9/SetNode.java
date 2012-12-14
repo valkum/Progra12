@@ -23,7 +23,7 @@ public class SetNode<E> {
         } else if (this.element.equals(o)) {
             this.active = x;
         } else {
-            return this.next.setActive(x, o);
+            this.next.setActive(x, o);
         }
 	}
 	public boolean contains(Object o){
@@ -31,12 +31,16 @@ public class SetNode<E> {
             if (o == null) {
                 return true;
             } else {
-                return this.next.contains(o);
+            	if(this.next != null)
+                	return this.next.contains(o);
+                return false;
             }
         } else if (this.element.equals(o)) {
             return true;
         } else {
-            return this.next.contains(o);
+        	if(this.next != null)
+            	return this.next.contains(o);
+            return false;
         }
 	}
 }

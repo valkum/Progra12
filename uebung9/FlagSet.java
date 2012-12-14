@@ -3,16 +3,20 @@ import java.util.*;
 public class FlagSet<E> extends AbstractIterableSet<E> {
 	private SetNode<E> head;
 
+	public FlagSet(){
+		this.head = new SetNode<E>(null, null);
+	}
 	public boolean add(E e) {
 		if (this.contains(e)) {
-            return false;
+			this.head.setActive(true, e);
+            return true;
         } else {
             this.head = new SetNode<E>(e, this.head);
             return true;
         }
 	}
 	public void clear() {
-		this.head = null;
+		this.head = new SetNode<E>(null, null);
 	}
 	public boolean contains(Object o) {
 		return this.head.contains(o);
@@ -22,7 +26,7 @@ public class FlagSet<E> extends AbstractIterableSet<E> {
 	}
 	public boolean remove(Object o) {
 		  if (this.contains(o)) {
-            this.head = new RemoveSet<E>(o, this.head);
+            this.head.setActive(true, o);
             return true;
         } else {
             return false;
