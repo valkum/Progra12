@@ -1,7 +1,9 @@
-package de.rwth.floren.rudolf.phantom.types;
-
 public class Wert<Einheit> {
 	private double value;
+
+	public Wert(double w) {
+		this.value = w;
+	}
 
 	public double getWert() {
 		return this.value;
@@ -9,4 +11,5 @@ public class Wert<Einheit> {
 	public void setWert(double w) {
 		this.value = w;
 	}
+
 }

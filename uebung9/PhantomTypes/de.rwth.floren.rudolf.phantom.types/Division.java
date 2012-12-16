@@ -1,5 +1,3 @@
-package de.rwth.floren.rudolf.phantom.types;
-
-public interface Division<Einheit, Einheit2>  {
+public interface Division<Divisor, Divident> extends Einheit {
 
 }
