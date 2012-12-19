@@ -1,0 +1,12 @@
+produkt :: [Int] -> Int
+produkt [] = 1
+produkt (x : xs) = x * produkt xs
+
+jedesZweite :: [ Int] -> [Int ]
+jedesZweite [] = []
+jedesZweite [x] = [x]
+jedesZweite (x:_:xs) = x : jedesZweite xs
+
+minus10 :: [Int] -> [ Int]
+minus10 [] = []
+minus10 (x:xs) = x - 10 : minus10 xs

@@ -1,0 +1,12 @@
+absteigend :: Int -> [Int ]
+absteigend 0 = []
+absteigend n = n : absteigend (n -1)
+
+produkt :: [Int] -> Int
+produkt [] = 1
+produkt (x:xs) = x * produkt xs
+
+summe :: [ Int] -> Int
+summe xs = summe ’ xs 0
+	where summe ’ [] a = a
+		  summe ’ (x:xs) a = summe ’ xs (a+x)

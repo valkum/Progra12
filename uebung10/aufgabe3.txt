@@ -1,0 +1,41 @@
+a)
+x:xs = [x] ++ xs
+
+Falsch
+Begründung: Da aus x:y eine neue Liste erzeugt und xs schon eine liste ist,
+wird aus x:xs [int, [int]]
+links: [x, [xs_1, xs_2, ..., xs_n]]
+rechts: [x, xs_1, xs_2, ...., xs_n]
+
+b) (x:y):xs = x:y:xs
+
+Falsch
+Begründung: Wie oben
+
+links: [[x, y], [xs_1, xs_2, ..., xs_n]]
+rechts: x:y:xs ist aber [x,y, [xs_1, xs_2, ..., xs_n]]
+
+c) 
+[x,y,xs] = x:y:xs
+
+Wahr
+Begründung: Links steht das ergebnis on rechts.
+
+links: [x, y,[xs_1, xs_2, ..., xs_n]] 
+rechts: [x, y, [xs_1, xs_2, ..., xs_n]]
+
+d)
+x:y:((x:[x]) ++ xs) = [x,y,x] ++ (x:xs)
+
+
+links: [x, y, [x, [x], xs_1, xs_2, ..., xs_n]] 
+rechts: [x, y, x, x, [xs_1, xs_2, ..., xs_n]]
+
+
+e)
+[]:[[],[[1]]] = [[],[]]:[[[1]]]
+
+
+Falsch
+links: [[], [[],[[1]]]] 
+rechts: [[[], []], [[[1]]]]

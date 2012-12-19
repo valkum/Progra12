@@ -1,0 +1,39 @@
+a)
+[] ++ [xs] = [] : [xs]
+
+Falsch
+++ ist nicht :
+: erstellt eine neue Liste
+++ verbindet zwei Listen
+Außerdem ist xs schon eine Liste. also ist [xs] [[xs_1, xs_2, ..., xs_n]]
+
+links: [xs_1, xs_2, ..., xs_n]
+rechts: [[], [xs_1, xs_2, ..., xs_n]
+
+b)
+[[]] ++ [x] = [] : [x]
+
+
+links: [[], x]
+rechts: [[], [x]]
+
+c)
+[x] ++ [y] = x : [y]
+
+
+links: [x, y]
+rechts: [x, [y]]
+
+d)
+x:y:z:(xs ++ ys) = [x,y,z] ++ xs ++ ys
+
+wahr
+
+links: [x,y,z, [xs_1, xs_2, ..., xs_n, ys_1, ys_2, ..., ys_m]]
+rechts: [x,y,z, [xs_1, xs_2, ..., xs_n, ys_1, ys_2, ..., ys_m]]
+e)
+[(x:xs):[ys],[[]]] = (([]:[]):[]) ++ ([([x] ++ xs), ys]:[])
+
+
+links: [[[x,[xs_1, xs_2, ..., xs_n]], [ys_1, ys_2, ..., ys_m]], [[]]]
+rechts: [[[x, xs_1, xs_2, ..., xs_n] ,[ys_1, ys_2, ..., ys_m]], []]
