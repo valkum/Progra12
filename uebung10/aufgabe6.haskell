@@ -1,0 +1,12 @@
+millimeter :: Int Int  -> Int
+millimeter f z = f*305 + z*25
+
+mult :: Int Int -> Int 
+mult x y | y > 0    = x + mult x (y-1) 
+	     |otherwise = 0
+
+bLog :: int -> int
+bLog n = 
+
+getLastTwo [Int] -> []
+getLastTwo (x:_:xs) = x : getLastTwo xs 
