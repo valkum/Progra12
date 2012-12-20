@@ -1,41 +1,42 @@
 a)
 x:xs = [x] ++ xs
 
-Falsch
-Begründung: Da aus x:y eine neue Liste erzeugt und xs schon eine liste ist,
-wird aus x:xs [int, [int]]
-links: [x, [xs_1, xs_2, ..., xs_n]]
-rechts: [x, xs_1, xs_2, ...., xs_n]
+[x, xs_1, xs_2, ..., xs_n] 
+Typ: Liste
+Länge n+1
+
 
 b) (x:y):xs = x:y:xs
+links: (x:y):xs (Nicht syntaktisch korrekt)
+Begründung: rechts von : muss eine Liste stehen
 
-Falsch
-Begründung: Wie oben
-
-links: [[x, y], [xs_1, xs_2, ..., xs_n]]
-rechts: x:y:xs ist aber [x,y, [xs_1, xs_2, ..., xs_n]]
+rechts:  [x, y, xs_1, xs_2, ..., xs_n]
+Begründung: es wird von rechts aus ausgewertet
 
 c) 
 [x,y,xs] = x:y:xs
 
-Wahr
-Begründung: Links steht das ergebnis on rechts.
+[x, y, xs_1, xs_2, ..., xs_n]
 
-links: [x, y,[xs_1, xs_2, ..., xs_n]] 
-rechts: [x, y, [xs_1, xs_2, ..., xs_n]]
+Typ: [Int]
+Länge: n+2
 
 d)
 x:y:((x:[x]) ++ xs) = [x,y,x] ++ (x:xs)
+      _____                       ____
+links: x:y:([x,x] ++ xs)
+links: [x, y, x, x] ++ xs
 
+rechts: [x, y, x] ++ [x, xs_1, xs_2, ..., xs_n]
 
-links: [x, y, [x, [x], xs_1, xs_2, ..., xs_n]] 
-rechts: [x, y, x, x, [xs_1, xs_2, ..., xs_n]]
+Typ: [Int]
+Länge: n+4
 
 
 e)
 []:[[],[[1]]] = [[],[]]:[[[1]]]
 
+Links: [[], [], [[1]]] Länge: 3 Typ: [[[Int]]] da [] = Typ [a] mit a bel Typ
+Rechts: [[[], []], [[1]]] Länge: 2 Typ: [[[Int]]]
 
-Falsch
-links: [[], [[],[[1]]]] 
-rechts: [[[], []], [[[1]]]]
+Nicht gleich
