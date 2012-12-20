@@ -6,7 +6,16 @@ produkt :: [Int] -> Int
 produkt [] = 1
 produkt (x:xs) = x * produkt xs
 
-summe :: [ Int] -> Int
-summe xs = summe ’ xs 0
-	where summe ’ [] a = a
-		  summe ’ (x:xs) a = summe ’ xs (a+x)
+summe :: [Int] -> Int
+summe xs = summe' xs 0
+	where summe' [] a = a
+		  summe' (x:xs) a = summe' xs (a+x)
+
+
+
+
+1. produkt (absteigend 2)
+
+-> produkt (2:absteigend (2-1))
+-> produkt (2:1:absteigend (1-1))
+-> produkt (2:1)
