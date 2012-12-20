@@ -15,7 +15,68 @@ summe xs = summe' xs 0
 
 
 1. produkt (absteigend 2)
+            ____________
 
 -> produkt (2:absteigend (2-1))
--> produkt (2:1:absteigend (1-1))
--> produkt (2:1)
+            __________________
+
+-> 2 * (produkt (absteigend (2-1)))
+                             ___
+
+-> 2 * (produkt (absteigend 1))
+				 ____________
+
+-> 2 * (produkt (1:absteigend (1-1)))				                
+	    ____________________________
+
+-> 2 * (1 * (produkt (absteigend (1-1))))
+                                  ___
+
+-> 2 * (1 * (produkt (absteigend 0)))
+                      ____________
+
+-> 2 * (1 * (produkt []))
+             __________
+
+-> 2 * (1 * 1)
+        _______
+-> 2 * 1
+   _____
+-> 2
+
+
+2. summe (absteigend 2)
+   ____________________
+
+-> summe' (absteigend 2) 0
+           ____________
+
+-> summe' (2:absteigend (2-1)) 0
+   _____________________________
+
+-> summe' (absteigend (2-1)) (0+2)
+                       ___
+
+-> summe' (absteigend 1) (0+2)
+           ____________
+
+-> summe' (1:absteigend (1-1)) (0+2)
+   _________________________________
+
+-> summe' (absteigend (1-1)) ((0+2)+1)
+                       ___
+
+-> summe' (absteigend 0) ((0+2)+1)
+           ____________
+
+-> summe' [] ((0+2)+1)
+   ___________________
+
+-> ((0+2)+1)
+     ___
+
+-> (2+1)
+    ___
+
+-> 3
+
