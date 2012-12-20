@@ -2,18 +2,29 @@ module Main where
 
 millimeter :: Int -> Int -> Int
 millimeter f z = f*305 + z*25
-
+---------------------
 mult :: Int -> Int -> Int 
-mult x y | y > 0    = x + mult x (y-1) 
-	     |otherwise = 0
+mult x 0 = 0
+mult x 1 = n
+mult x y = x + mult x (y-1) 
+-----------
+sqr :: Int -> Int -> Int
+sqr x 0 = 1
+sqr x 1 = x
+sqr x y = x * sqr x (y-1)
 
-bLog :: int -> int
-bLog n = 
 
+bLogh :: Int-> Int -> Int
+bLogh x y |x - sqr 2 y > 0 = bLogh x (y+1)
+          |otherwise = y
+
+bLog :: Int -> Int
+bLog x = bLogh x 0
+------------------
 getLastTwo :: [Int] -> [Int]
 getLastTwo [x,y]  = [x, y]
 getLastTwo (_:xs) = getLastTwo xs
-
+--------------------
 singletons :: Int -> [[Int]]
 singletons 1 = [[1]]
 singletons x = [[x]]++singletons (x-1)
