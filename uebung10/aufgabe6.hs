@@ -66,3 +66,18 @@ kleinste (x:y:xs) |x<y = kleinste' x xs
 nachHinten :: Int -> [Int] -> [Int]
 nachHinten 0 xs = xs
 nachHinten x (y:xs) = nachHinten (x-1) xs ++ [x]
+
+
+
+-- i)
+einpacken :: [[Int]] -> [Int] -> [[Int]]
+einpacken ([]:xs) [y] = [[y]]
+einpacken ([]:xs) (y:ys) = [y] : einpacken xs ys
+einpacken (x:xs) ys = x : einpacken xs ys
+
+
+
+-- j)
+listAdd :: Int -> [Int] -> [Int]
+listAdd x [y] = [y+x]
+listAdd x (y:ys) = (y+x):listAdd y ys
