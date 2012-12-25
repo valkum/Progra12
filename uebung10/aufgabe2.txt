@@ -10,3 +10,37 @@ jedesZweite (x:_:xs) = x : jedesZweite xs
 minus10 :: [Int] -> [ Int]
 minus10 [] = []
 minus10 (x:xs) = x - 10 : minus10 xs
+
+
+
+1. produkt (jedesZweite (minus10 [3,2,1]))
+						 _______________
+
+-> produkt (jedesZweite (-7:minus10 [2,1]))
+                            _____________
+
+-> produkt (jedesZweite (-7:-8:minus10 [1]))
+            _______________________________
+
+-> produkt (-7:jedesZweite(minus10 [1]))
+   _____________________________________
+
+-> -7 * (produkt (jedeszweite(minus10 [1])))
+                              ___________
+
+-> -7 * (produkt (jedesZweite [-9]))
+                  ________________
+
+-> -7 * (produkt [-9])
+         ____________
+
+-> -7 * (-9 * produkt [])
+              __________
+
+-> -7 * (-9 * 1)
+         ________
+
+-> -7 * -9
+   _______
+
+-> 63
