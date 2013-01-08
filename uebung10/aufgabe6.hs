@@ -15,16 +15,20 @@ mult x y = x + mult x (y-1)
 
 
 -- c)
-sqr :: Integer -> Integer -> Integer
-sqr x 0 = 1
-sqr x 1 = x
-sqr x y = x * sqr x (y-1)
-
 bLog :: Integer -> Integer
 bLog x = bLog' x 0 
     where bLog' :: Integer -> Integer -> Integer
-          bLog' x y |(x- (sqr 2 y)) > 0 = bLog' x (y+1)
+          bLog' x y |x > (pow 2 y) = bLog' x (y+1)
                     |otherwise = y
+                    where pow :: Integer -> Integer -> Integer
+                          pow x 0 = 1
+                          pow x 1 = x
+                          pow x y = x * pow x (minus y 1)
+                                where minus :: Integer -> Integer -> Integer
+                                      minus x y = minus' 0 x y
+                                          where minus' :: Integer -> Integer -> Integer -> Integer
+                                                minus' a x y | a+y == x = a
+                                                             |otherwise = minus' (a+1) x y
 
 
 
