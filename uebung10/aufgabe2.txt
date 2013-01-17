@@ -14,7 +14,7 @@ minus10 (x:xs) = x - 10 : minus10 xs
 
 
 1. produkt (jedesZweite (minus10 [3,2,1]))
-						 _______________
+						             _______________
 
 -> produkt (jedesZweite (-7:minus10 [2,1]))
                             _____________
