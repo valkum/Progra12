@@ -8,15 +8,23 @@ verbindung([fitness,geschaeftsfuehrung],aufzug).
 
 
 % b)
-verbindung([A,_,B],M).
+% verbindung([A,_,B],M).
 
 
 % c)
-inListe([X|XS],X).
-inListe([Y|YS],X) :- inListe(YS,X).
+inListe([X|_],X).
+inListe([_|Tail],X) :- inListe(Tail,X).
 
 % d)
-weiterHinten([A|XS],A,B) :- inListe(XS,B).
-weiterHinten([X|XS], A, B) :- weiterhinten(XS,A,B).
+weiterHinten([A|Tail],A,B) :- inListe(Tail,B).
+weiterHinten([_|Tail], A, B) :- weiterHinten(Tail,A,B).
 
 % e)
+moeglich(A,A,_).
+moeglich(A,B,XS) :- inListe(XS,X), % Alle Verbindungen raten
+                    verbindung(XTEMP,X),
+                    weiterHinten(XTEMP, A, Z), % Test ob Es ein Z weiterhinten in den aktuellen Verbindungen gibt, so dass man von dort B erreicht.
+                    moeglich(Z,B,XS).
+
+% d)
+% moeglich(erdgeschoss, X, [kletterwand,aufzug]).
